@@ -34,15 +34,14 @@ def perform_ocr(image):
     return extracted_text
 
 def process_pdf(pdf_file):
-    poppler_path = r"C:\Users\Felipe\AppData\Local\Programs\Python\Python312\Library\bin\poppler-24.08.0\Library\bin"
-    
+        
     # Criar um arquivo temporário para salvar o conteúdo do PDF
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
         temp_pdf.write(pdf_file.getvalue())
         temp_pdf_path = temp_pdf.name
 
     try:
-        images = convert_from_path(temp_pdf_path, poppler_path=poppler_path)
+        images = convert_from_path(temp_pdf_path)
         all_text = []
         for i, image in enumerate(images):
             text = perform_ocr(image)
