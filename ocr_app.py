@@ -8,9 +8,6 @@ import os
 import cv2
 import numpy as np
 
-os.environ['TESSDATA_PREFIX'] = r'C:\Program Files\Tesseract-OCR\tessdata'
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
 def perform_ocr(image):
     # Aumentar a resolução da imagem
     img_array = np.array(image)
